@@ -9,6 +9,10 @@ public class jUMP : MonoBehaviour
     private float maxJumpTime = 0.3f;
     [SerializeField]
     private float jumpBoost = 0.5f;
+    
+    [SerializeField]
+    private int maxJumps = 2;
+    private int jumps;
 
     private Rigidbody rb;
 
@@ -17,8 +21,14 @@ public class jUMP : MonoBehaviour
     private bool buttonPressed;
 
     private float jumpTimeCounter;
+    
+    
+    private void RestartJumps()
+    {
+        jumps = maxJumps;
+    }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -28,8 +38,9 @@ public class jUMP : MonoBehaviour
     public void StartJump()
     {
         buttonPressed = true;
-        if(isGrounded)
+        if(isGrounded || jumps > 0)
         {
+            jumps--;
             isJumping = true;
             jumpTimeCounter = maxJumpTime;
             rb.linearVelocity = Vector3.up * jumpForce;
@@ -68,6 +79,7 @@ public class jUMP : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         { 
+            RestartJumps();
             isGrounded = true;
         }
     }
