@@ -16,7 +16,7 @@ public class PlatformInstanciate : MonoBehaviour
 
     private float offsetPositionX;
 
-    private int initialPlatforms = 10;
+    private int initialPlatforms = 20;
 
     private void Start()
     {
@@ -37,5 +37,14 @@ public class PlatformInstanciate : MonoBehaviour
             offsetPositionX += distanceBetweenPlatforms + platform.GetComponent<BoxCollider>().size.x * 0.5f;
             platform.transform.SetParent(transform);
         }
+    }
+
+    public void Restart()
+    {
+        foreach(Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        Start();
     }
 }

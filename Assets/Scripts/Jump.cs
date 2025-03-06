@@ -19,6 +19,7 @@ public class jUMP : MonoBehaviour
     private bool isGrounded;
     private bool isJumping;
     private bool buttonPressed;
+    private bool canJump = true;
 
     private float jumpTimeCounter;
     
@@ -34,9 +35,18 @@ public class jUMP : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+    public void SetCanJump(bool value)
+    {
+        canJump = value;
+    }
+
     public void StartJump()
     {
+        if(!canJump)
+        {
+            return;
+        }
+
         buttonPressed = true;
         if(isGrounded || jumps > 0)
         {

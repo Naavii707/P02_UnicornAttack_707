@@ -17,12 +17,20 @@ public class PlayerCollision : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Obstacle"))
         {
-            Destroy(collision.gameObject);
+            if (dash.IsDashing)
+            {
+                Destroy(collision.gameObject);
+            }
+
+            else
+            {
+                onPlayerLose?.Invoke();
+            }
         }
 
-        else
-        {
-            onPlayerLose?.Invoke();
-        }
+        
+        
+        
+        
     }
 }
