@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlatformsMovement : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class PlatformsMovement : MonoBehaviour
     private float initialSpeed = 2f;
     [SerializeField]
     private float speedIncrease = 0.1f;
+    [SerializeField]
+    private UnityEvent<int> onScoreChanged;
 
     private bool canMove = true;
 
@@ -14,6 +17,10 @@ public class PlatformsMovement : MonoBehaviour
     private Vector3 startingPosition;
 
     private float speed;
+
+    private Vector3 movedDistance;
+
+    
 
     private void Start()
     {
@@ -32,7 +39,10 @@ public class PlatformsMovement : MonoBehaviour
 
     private void MovePlatforms()
     {
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        Vector3 distanceToMove = Vector3.left * speed * Time.deltaTime;
+        transform.position += distanceToMove;
+        movedDistance += distanceToMove;
+        onScoreChanged?.Invoke(Mathf.Abs((int)movedDistance.x));
     }
 
     public void IncreaseSpeed()
@@ -54,6 +64,7 @@ public class PlatformsMovement : MonoBehaviour
     {
         transform.position = startingPosition;
         speed = initialSpeed;
+        movedDistance = Vector3.zero;
         StartMovement();
     }
 }
