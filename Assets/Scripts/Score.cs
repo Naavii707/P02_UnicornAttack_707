@@ -5,29 +5,19 @@ using UnityEngine.Events;
 public class Score : MonoBehaviour
 {
     private List<int> scores = new List<int>();
-
     private int currentScore = 0;
-    private int scoreIndex = 0;
-
     [SerializeField]
     private UnityEvent<int> onScoreChanged;
-
     [SerializeField]
     private UnityEvent<int> onSetScore;
-
     [SerializeField]
     private UnityEvent<int> onSetFinalScore;
 
-    [SerializeField]
-    private int scoresNumber = 3;
-
-    public void Initialized()
+    public void Initialize()
     {
-        scoreIndex = 0;
         currentScore = 0;
         scores.Clear();
     }
-
     public void SetScore(int score)
     {
         currentScore = score;

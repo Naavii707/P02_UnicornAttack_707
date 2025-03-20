@@ -331,10 +331,46 @@ MonoBehaviour:
         m_CallState: 2
   _onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 153285020}
+        m_TargetAssemblyTypeName: Score, Assembly-CSharp
+        m_MethodName: SetFinalScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1277766981}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: FinishGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onRespawn:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1277766981}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RespawnGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &84491385
 Transform:
   m_ObjectHideFlags: 0
@@ -566,7 +602,7 @@ Transform:
   m_GameObject: {fileID: 129493650}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -618,6 +654,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 666586447}
+        m_TargetAssemblyTypeName: PlatformsMovement, Assembly-CSharp
+        m_MethodName: SpeedUp
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2.5
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onDashEnd:
     m_PersistentCalls:
       m_Calls:
@@ -633,7 +681,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  inactiveDuration: 0
+      - m_Target: {fileID: 666586447}
+        m_TargetAssemblyTypeName: PlatformsMovement, Assembly-CSharp
+        m_MethodName: SpeedDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  inactiveDuration: 2.5
 --- !u!114 &129493658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,6 +709,18 @@ MonoBehaviour:
   onPlayerLose:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 153285020}
+        m_TargetAssemblyTypeName: Score, Assembly-CSharp
+        m_MethodName: PlayerLose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 84491384}
         m_TargetAssemblyTypeName: Health, Assembly-CSharp
         m_MethodName: OnReceiveDamage
@@ -689,30 +761,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Dash, Assembly-CSharp
         m_MethodName: SetDashEnable
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1277766981}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlayerLose
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 153285020}
-        m_TargetAssemblyTypeName: Score, Assembly-CSharp
-        m_MethodName: PlayerLose
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -807,7 +855,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  scoresNumber: 3
 --- !u!4 &153285021
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,6 +1061,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235357269}
   m_CullTransparentMesh: 1
+--- !u!1 &437300349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 437300352}
+  - component: {fileID: 437300351}
+  - component: {fileID: 437300350}
+  m_Layer: 0
+  m_Name: PlatformTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &437300350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437300349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f890d4096e8ddd0429dcb96ce367597f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onPlatformTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 666586449}
+        m_TargetAssemblyTypeName: PlatformInstanciate, Assembly-CSharp
+        m_MethodName: InstantiatePlatforms
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &437300351
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437300349}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 30, z: 25}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &437300352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437300349}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &465428822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,7 +1371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa58a6eb70441a4bb6f6b9b84faaac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 2
+  initialSpeed: 3
   speedIncrease: 1
   onScoreChanged:
     m_PersistentCalls:
@@ -1269,7 +1397,7 @@ Transform:
   m_GameObject: {fileID: 666586446}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1288,13 +1416,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platforms:
-  - {fileID: 6342857490498040683, guid: 3c9dac7656800cf419a8f4151a798b87, type: 3}
-  - {fileID: 1731613478963757515, guid: 49adf6925b5b5ef44ac4e3536ddd815c, type: 3}
-  - {fileID: 6356970421349713212, guid: ee38c51681b4cf54daa302926906bbf8, type: 3}
-  - {fileID: 3513906229207087367, guid: f0867e81790b34545b623421e39b4274, type: 3}
-  - {fileID: 9068178178204536155, guid: 51f0814581a459a4f9ec53b1631a06b8, type: 3}
-  platformsPosition: {fileID: 1333445003}
+  - {fileID: 1477877496473781374, guid: 1b6394518dfb64b48bcd8b9988b029f0, type: 3}
   distanceBetweenPlatforms: 5
+  initialPlatforms: 20
 --- !u!1 &756282873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,6 +1901,42 @@ MonoBehaviour:
           m_StringArgument: FadeWtT
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 153285020}
+        m_TargetAssemblyTypeName: Score, Assembly-CSharp
+        m_MethodName: Initialize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: FadeWtT
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1881304324}
+        m_TargetAssemblyTypeName: ScoresGameOver, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: FadeWtT
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 60995402}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: FadeWtT
+          m_BoolArgument: 0
+        m_CallState: 2
   onRespawnGame:
     m_PersistentCalls:
       m_Calls:
@@ -1865,6 +2025,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   secondsToRestart: 3
+  onFinishGame:
+    m_PersistentCalls:
+      m_Calls: []
+  finalSecondsToRestart: 3
 --- !u!4 &1277766982
 Transform:
   m_ObjectHideFlags: 0
@@ -1905,7 +2069,7 @@ Transform:
   m_GameObject: {fileID: 1333445002}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2567,7 +2731,7 @@ Transform:
   m_GameObject: {fileID: 1628764261}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1650.8999, y: 980, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3433,7 +3597,7 @@ Transform:
   m_GameObject: {fileID: 2064739251}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3644,3 +3808,4 @@ SceneRoots:
   - {fileID: 153285021}
   - {fileID: 1628764263}
   - {fileID: 2064739252}
+  - {fileID: 437300352}
