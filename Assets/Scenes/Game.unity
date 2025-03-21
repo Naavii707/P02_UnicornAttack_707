@@ -1417,7 +1417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platforms:
   - {fileID: 1477877496473781374, guid: 1b6394518dfb64b48bcd8b9988b029f0, type: 3}
-  distanceBetweenPlatforms: 5
+  safePlatforms: []
+  distanceBetweenPlatforms: 2.5
   initialPlatforms: 20
 --- !u!1 &756282873
 GameObject:
